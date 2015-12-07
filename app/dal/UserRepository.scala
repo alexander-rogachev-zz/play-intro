@@ -32,4 +32,7 @@ class UserRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(implic
     users.result
   }
 
+  def getUserByNameAndPass(userName: String, pass: String) = {
+    users.filter(u => u.userName === userName && u.password === pass).result
+  }
 }

@@ -1,3 +1,20 @@
-<div data-example>
+<div>
+    <section ng-hide="authenticated">
+        <form ng-submit="login()">
+            <input type="text" placeholder="Username" ng-model="loginForm.username">
+            <input type="password" placeholder="Password ('red' or 'blue' or 'green')" ng-model="loginForm.password">
+            <button class="btn btn-login" type="submit">Login</button>
+        </form>
+    </section>
 
+    <section ng-show="authenticated">
+        <div>Hello there! How are you today <strong>{{user().name}}</strong>?</div>
+        <button type="button" class="btn btn-logout" ng-click="logout()">Logout</button>
+    </section>
+
+    <section>
+        <button class="btn btn-public" type="button" ng-click="ctrl.publicCall()">Public API</button>
+        <button class="btn btn-private" type="button" ng-click="ctrl.privateCall()">Private API</button>
+        <button class="btn btn-admin" type="button" ng-click="ctrl.adminCall()">Admin API</button>
+    </section>
 </div>

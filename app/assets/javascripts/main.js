@@ -4,7 +4,7 @@
     // -- RequireJS config --
     requirejs.config({
         // Packages = top-level folders; loads a contained file named 'main.js"
-        packages: ['common', 'home', 'person', 'event', 'contact', 'account', 'users'],
+        packages: ['common', 'home', 'person', 'event', 'contact', 'account', 'user'],
         shim: {
             'jsRoutes': {
                 deps: [],
@@ -16,9 +16,9 @@
                 deps: ['jquery'],
                 exports: 'angular'
             },
-           /* underscore: {
+            underscore: {
                 exports: '_'
-            },*/
+            },
             'angular-route': ['angular'],
             'angular-cookies': ['angular'],
            /* 'angular-animate': ['angular'],*/
@@ -29,7 +29,7 @@
         },
         paths: {
             'requirejs': ['../lib/requirejs/require'],
-            /*'underscore': ['../lib/underscorejs/underscore'],*/
+            'underscore': ['../lib/underscorejs/underscore'],
             'jquery': ['../lib/jquery/jquery'],
             'angular': ['../lib/angularjs/angular'],
             'angular-route': ['../lib/angularjs/angular-route'],
@@ -48,7 +48,7 @@
     };
 
     // Load the app. This is kept minimal so it doesn't need much updating.
-    require(['angular', 'angular-cookies', 'angular-route', 'jquery', 'bootstrap', 'angular-growl', /*'underscore',*/ './app'],
+    require(['angular', 'angular-cookies', 'angular-route', 'jquery', 'bootstrap', 'angular-growl', 'underscore', './app'],
         function (angular) {
             angular.bootstrap(document, ['app']);
         }

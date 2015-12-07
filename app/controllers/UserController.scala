@@ -10,7 +10,7 @@ import play.api.mvc.{Action, Controller}
 
 import scala.concurrent.ExecutionContext
 
-class UsersController @Inject() (repo: UserRepository, val cache: CacheApi, val messagesApi: MessagesApi)
+class UserController @Inject() (repo: UserRepository, val cache: CacheApi, val messagesApi: MessagesApi)
                                (implicit ec: ExecutionContext) extends Controller with I18nSupport {
   def index = Action {
     Ok(views.html.index())

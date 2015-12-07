@@ -5,39 +5,36 @@ define([], function() {
   'use strict';
 
   /** Controls the index page */
-  var HomeCtrl = function($scope, $rootScope, $location, helper) {
-    console.log(helper.sayHi());
-    $rootScope.pageTitle = 'Welcome';
-  };
-  HomeCtrl.$inject = ['$scope', '$rootScope', '$location', 'helper'];
+  var HomeCtrl =  function ($scope, $http, Authenticated) {
 
-  /** Controls the header */
-  var HeaderCtrl = function($scope, userService, helper, $location) {
-    // Wrap the current user from the service in a watch expression
-    $scope.$watch(function() {
-      var user = userService.getUser();
-      return user;
-    }, function(user) {
-      $scope.user = user;
-    }, true);
+      $scope.loginForm = {};
 
-    $scope.logout = function() {
-      userService.logout();
-      $scope.user = undefined;
-      $location.path('/');
-    };
-  };
-  HeaderCtrl.$inject = ['$scope', 'userService', 'helper', '$location'];
+      $scope.login = function login() {
+          Authenticated.login($scope.loginForm).then(function () {
+              $scope.loginForm = {};
+          }, function (error) {
+              $scope.notif('error', 'Invalid username or password!');
+          });
+      };
 
-  /** Controls the footer */
-  var FooterCtrl = function(/*$scope*/) {
+      function get(endpoint) {
+          return $http.get(endpoint).then(function (response) {
+              $scope.notif('success', response.data);
+          }, function (error) {
+              // 401 and 403 errors are already handled by the interceptor
+          });
+      }
+
+
+      $scope.notif = function notif(severity, message) {
+          $scope.$emit('notification', severity, message);
+      };
   };
-  //FooterCtrl.$inject = ['$scope'];
+
+  HomeCtrl.$inject = ['$scope', '$http', 'Authenticated'];
 
   return {
-    HeaderCtrl: HeaderCtrl,
-    FooterCtrl: FooterCtrl,
-    HomeCtrl: HomeCtrl
+    HeaderCtrl: HeaderCtrl
   };
 
 });

@@ -2,12 +2,20 @@ package controllers
 
 import javax.inject.Inject
 
+import dal.UserRepository
+import models.User
 import play.api.cache._
 import play.api.mvc._
+import play.api._
+import play.api.mvc._
+import play.api.libs.json._
+import play.api.libs.functional.syntax._
+
+import pdi.jwt._
 
 import scala.concurrent.duration._
 
-class Application @Inject()(val cache: CacheApi) extends Controller/* with Secured*/ {
+class Application @Inject()(repo: UserRepository, val cache: CacheApi) extends Controller with Secured {
 
   val cacheDuration = 1.day
 
@@ -37,4 +45,28 @@ class Application @Inject()(val cache: CacheApi) extends Controller/* with Secur
       Ok(play.api.routing.JavaScriptReverseRouter(varName)(routeCache: _*)).as(JAVASCRIPT)
     }
   }
+
+  val passwords = Seq("red", "blue", "green")
+
+  private val loginForm: Reads[(String, String)] =
+    (JsPath \ "username").read[String] and
+      (JsPath \ "password").read[String] tupled
+
+  def login = Action(parse.json) { implicit request =>
+    request.body.validate(loginForm).fold(
+      errors => {
+        BadRequest(JsError.toJson(errors))
+      },
+      form => {
+        def user = repo.getUserByNameAndPass(form._1, form._2)
+        if (user equals None) {
+          Ok.addingToJwtSession("user", user)
+        } else {
+          Unauthorized
+        }
+      }
+    )
+  }
+
+
 }

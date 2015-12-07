@@ -2,7 +2,7 @@ define([], function() {
     'use strict';
 
     /** Controls the index page */
-    var UsersCtrl = function($scope, $http, playRoutes, ngTableParams, $filter) {
+    var UserCtrl = function($scope, $http, playRoutes, ngTableParams, $filter) {
         /* jshint ignore:start */
         $scope.tableParams = new ngTableParams({
             page: 1,
@@ -21,9 +21,9 @@ define([], function() {
         });
         /* jshint ignore:end */
     };
-    UsersCtrl.$inject = ['$scope', '$http', 'playRoutes', 'ngTableParams', '$filter'];
+    UserCtrl.$inject = ['$scope', '$http', 'playRoutes', 'ngTableParams', '$filter'];
 
     return {
-        UsersCtrl: UsersCtrl
+        UserCtrl: UserCtrl
     };
 });
