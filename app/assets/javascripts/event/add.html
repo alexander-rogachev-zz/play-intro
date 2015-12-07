@@ -1,0 +1,77 @@
+<div>
+    <form class="form-horizontal">
+        <h2>Add event</h2>
+        <!-- <div class="control-group">
+             <label class="control-label" for="theme">Theme</label>
+             <div class="controls">
+                 <input type="text" id="theme" placeholder="Theme" ng-model="event.theme">
+             </div>
+         </div>
+         <div class="control-group">
+             <label class="control-label" for="subject">Subject</label>
+             <div class="controls">
+                 <input type="text" id="subject" placeholder="Subject" ng-model="event.subject">
+             </div>
+         </div>-->
+        <div class="control-group">
+            <label class="control-label" for="comment">Comment</label>
+            <div class="controls">
+                <textarea rows="6" id="comment" placeholder="Comment" ng-model="event.comment"></textarea>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="eventType">Event Type</label>
+            <div class="controls">
+                <input type="text" id="eventType" placeholder="Event Type" ng-model="event.eventType">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="startDate">Event start date</label>
+            <div class="controls">
+                <input type="date" id="startDate" placeholder="Event start date" ng-model="event.startDate">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="endDate">Event end date</label>
+            <div class="controls">
+                <input type="date" id="endDate" placeholder="Event end date" ng-model="event.endDate">
+            </div>
+        </div>
+        <!-- <div class="control-group">
+             <label class="control-label" for="eventType">Event Type</label>
+             <div class="controls">
+                 <select id="eventType" ng-model="event.eventType">
+                     <option ng-repeat="eventType in eventTypes" value="{{eventType}}">{{eventType}}</option>
+                 </select>
+             </div>
+         </div>-->
+        <div class="control-group">
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="event.isImportant"> Important
+                </label>
+            </div>
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="event.isCalendar"> Calendar
+                </label>
+            </div>
+            <div class="controls">
+                <label class="checkbox" ng-model="event.duplicateToGoogleCalendar">
+                    <input type="checkbox"> Copy to Google calendar
+                </label>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="durationType">Duration Type</label>
+                <div class="controls">
+                    <input type="text" id="durationType" placeholder="Duration Type" ng-model="event.durationType">
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary" ng-click="addEvent(event)">Add event</button>
+            </div>
+        </div>
+    </form>
+</div>

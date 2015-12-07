@@ -1,0 +1,12 @@
+<div>
+    <table ng-table="tableParams" class="table table-striped table-hover table-bordered">
+        <tbody>
+        <tr ng-repeat="row in $data">
+            <td class="text-center"  data-title="'Id'" sortable="'id'">{{row.id}}</td>
+            <td class="text-right"  data-title="'Name'" sortable="'comment'">{{row.name}}</td>
+            <td class="text-right"  data-title="'User name'" sortable="'eventType'">{{row.userName}}</td>
+            <td class="text-right"  data-title="'Email'" sortable="'email'">{{row.email | date}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,22 @@
+<div>
+    <form class="form-horizontal">
+        <h2>Add contact</h2>
+        <div class="control-group">
+            <label class="control-label" for="name">Name</label>
+            <div class="controls">
+                <input type="text" id="name" placeholder="Name" ng-model="person.name">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="age">Age</label>
+            <div class="controls">
+                <input type="text" id="age" placeholder="Age" ng-model="person.age">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary" ng-click="addPerson(person)">Add contact</button>
+            </div>
+        </div>
+    </form>
+</div>

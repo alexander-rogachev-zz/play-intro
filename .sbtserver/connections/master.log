@@ -1,0 +1,13 @@
+New log file opened at Wed Nov 11 16:09:19 SAMT 2015 by 5592@rogachev-pc
+Taking next connection to: 55910
+New client attempting to connect on port: 55922-55910
+  Address = /192.168.0.67:55910
+This client on port 55922 has uuid cb184f6c-8c36-45ea-b8c9-abd5e56be327 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-cb184f6c-8c36-45ea-b8c9-abd5e56be327
+Taking next connection to: 55910
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 5592@rogachev-pc logs at Wed Nov 11 16:12:20 SAMT 2015, goodbye.

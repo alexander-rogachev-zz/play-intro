@@ -1,0 +1,35 @@
+#header {
+    background: #ccc;
+    height: 58px;
+}
+
+.navbar {
+    width: 98%;
+    margin: 5px;
+}
+
+#footer {
+    background: #ccc;
+    height: 58px;
+}
+.form-signin {
+    align-content: center;
+}
+
+.table thead tr {
+    margin: 5px;
+    background: #333;
+    color: #fff;
+}
+
+.table thead tr a {
+    color: #fff;
+}
+
+.sortorder:after {
+    content: '\25b2';
+}
+
+.sortorder.reverse:after {
+    content: '\25bc';
+}

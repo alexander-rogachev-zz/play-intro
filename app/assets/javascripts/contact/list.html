@@ -1,0 +1,17 @@
+<div>
+    <a href="#/addContact">New contact</a>
+    <table ng-table="tableParams" class="table table-striped table-hover table-bordered">
+        <tbody>
+        <tr ng-repeat="row in $data">
+            <td class="text-center"  data-title="'id'" sortable="'id'">{{row.id}}</td>
+            <td class="text-right"  data-title="'Name'" sortable="'name'">{{row.name}}</td>
+            <td class="text-right"  data-title="'Phone Number'" sortable="'phoneNumber'">{{row.phoneNumber}}</td>
+            <td class="text-right"  data-title="'Mail'" sortable="'mail'">{{row.mail}}</td>
+            <td class="text-right"  data-title="'Mail secondary'" sortable="'mailSecondary'">{{row.mailSecondary}}</td>
+            <td class="text-right"  data-title="'Title'" sortable="'title'">{{row.title}}</td>
+            <td class="text-right"  data-title="'Skype'" sortable="'skype'">{{row.skype}}</td>
+            <td class="text-right"  data-title="'Newsletters'" sortable="'newsletters'">{{row.newsletters}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

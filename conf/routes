@@ -1,0 +1,29 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+GET     /jsroutes.js                controllers.Application.jsRoutes()
+# Home page
+GET     /                           controllers.Application.index()
+
+# JavaScript routes object
+GET     /accounts                   controllers.AccountController.getAccounts
+#GET     /accountfields              controllers.AccountController.getAccountWithFields
+GET     /account                    controllers.AccountController.getAccount(name: String, defaultMailText: Option[String], defaultMailSubject: String)
+POST    /account                    controllers.AccountController.addAccount(name: String, defaultMailText: Option[String], defaultMailSubject: String)
+POST    /removeAccount              controllers.AccountController.removeAccount(id: Long)
+POST    /updateAccount              controllers.AccountController.updateAccount(id: Long, name: String, defaultMailText: Option[String], defaultMailSubject: String)
+
+GET     /contacts                   controllers.ContactController.getContacts
+GET     /contact                    controllers.ContactController.getContact(name: String, phoneNumber: Option[String], mail: Option[String], mailSecondary: Option[String], title: Option[String], skype: Option[String], newsletters: Int)
+POST    /contact                    controllers.ContactController.addContact(name: String, phoneNumber: Option[String], mail: Option[String], mailSecondary: Option[String], title: Option[String], skype: Option[String], newsletters: Int)
+
+GET     /persons                    controllers.PersonController.getPersons
+POST    /person                     controllers.PersonController.addPerson(name: String, age: Int)
+
+GET     /events                     controllers.EventController.getEvents
+POST    /event                      controllers.EventController.addEvent(comment: Option[String], eventType: Int, startDate: String, endDate: String, calendar: Boolean, duplicateToGoogleCalendar: Boolean, isImportant: Boolean, durationType: String)
+
+GET     /users                      controllers.UsersController.getUsers
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

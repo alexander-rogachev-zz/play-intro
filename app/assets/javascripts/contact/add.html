@@ -1,0 +1,52 @@
+<div>
+    <form class="form-horizontal" novalidate name="contactForm">
+        <h2>Add contact</h2>
+        <div class="control-group">
+            <label class="control-label" for="name">Name</label>
+            <div class="controls">
+                <input type="text" id="name" placeholder="Name" ng-model="contact.name">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="phoneNumber">Phone number</label>
+            <div class="controls">
+                <input type="text" id="phoneNumber" placeholder="Phone number" ng-model="contact.phoneNumber">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="mail">Mail</label>
+            <div class="controls">
+                <input type="email" id="mail" placeholder="Mail" ng-model="contact.mail">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="mailSecondary">Secondary mail</label>
+            <div class="controls">
+                <input type="email" id="mailSecondary" placeholder="Secondary mail" ng-model="contact.mailSecondary">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="title">Title</label>
+            <div class="controls">
+                <input type="text" id="title" placeholder="Title" ng-model="contact.title">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="skype">Skype</label>
+            <div class="controls">
+                <input type="text" id="skype" placeholder="Skype" ng-model="contact.skype">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="newsletters">Newsletters</label>
+            <div class="controls">
+                <input type="text" id="newsletters" placeholder="Newsletters" ng-model="contact.newsletters">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary" ng-click="addContact(contact)">Add contact</button>
+            </div>
+        </div>
+    </form>
+</div>

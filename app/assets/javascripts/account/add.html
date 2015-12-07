@@ -1,0 +1,32 @@
+<div>
+    <form class="form-horizontal" name="accountForm" ng-click="accountForm.$valid && addAccount(account)" novalidate>
+        <h2>Add account</h2>
+        <div class="control-group" ng-class="{'has-error' : accountForm.name.$invalid && !accountForm.name.$pristine || accountForm.name.$error.required}">
+            <label class="control-label" for="name">Name</label>
+            <div class="controls">
+                <input type="text" id="name" name="name" placeholder="Name" ng-model="account.name" ng-minlength="2" ng-maxlength="10" required>
+                <p ng-show="accountForm.name.$error.minlength" class="help-block">Name is too short.</p>
+                <p ng-show="accountForm.name.$error.maxlength" class="help-block">Name is too long.</p>
+                <p ng-show="accountForm.name.$error.required" class="help-block">Name is required.</p>
+            </div>
+        </div>
+        <div class="control-group" ng-class="{'has-error' : accountForm.defaultMailSubject.$invalid && !accountForm.defaultMailSubject.$pristine || accountForm.defaultMailSubject.$error.required}">
+            <label class="control-label" for="defaultMailSubject">Default mail subject</label>
+            <div class="controls">
+                <input type="text" id="defaultMailSubject" name="defaultMailSubject" placeholder="Default mail subject" ng-model="account.defaultMailSubject" required>
+                <p ng-show="accountForm.defaultMailSubject.$error.required" class="help-block">Name is required.</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="defaultMailText">Default mail text</label>
+            <div class="controls">
+                <input type="text" id="defaultMailText" placeholder="Default mail text" ng-model="account.defaultMailText">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit" class="btn" ng-class="{'btn-primary' : accountForm.$valid}" title="Add account" value="Add account" ng-disabled="accountForm.$invalid"/>
+            </div>
+        </div>
+    </form>
+</div>

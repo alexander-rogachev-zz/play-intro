@@ -1,0 +1,35 @@
+<div>
+    <a href="#/addAccount">New account</a>
+    <table ng-table="tableParams" class="table table-striped table-hover table-bordered" demo-tracked-table="tableTracker">
+        <colgroup>
+            <col width="65%" />
+            <col width="10%" />
+            <col width="10%" />
+            <col width="15%" />
+        </colgroup>
+        <tbody>
+        <tr ng-repeat="row in $data" ng-form="rowForm" demo-tracked-table-row="row">
+            <td class="text-center"  data-title="'id'" sortable="'id'">{{row.id}}</td>
+            <td class="text-right"  data-title="'Name'" sortable="'name'" ng-switch="row.isEditing" ng-class="name.$dirty ? 'bg-warning' : ''" ng-form="name" demo-tracked-table-cell>
+                <span ng-switch-default class="editable-text">{{row.name}}</span>
+                <div class="controls" ng-class="name.$invalid && name.$dirty ? 'has-error' : ''" ng-switch-when="true">
+                    <input type="text" name="name" ng-model="row.name" class="editable-input form-control input-sm" required />
+                </div>
+            </td>
+            <td class="text-right"  data-title="'Default mail subject'" sortable="'defaultMailSubject'" ng-switch="row.isEditing" demo-tracked-table-cell>
+                <span ng-switch-default class="editable-text">{{row.name}}</span>
+                <div class="controls" ng-class="defaultMailSubject.$invalid && defaultMailSubject.$dirty ? 'has-error' : ''" ng-switch-when="true">
+                    <input type="text" name="defaultMailSubject" ng-model="row.defaultMailSubject" class="editable-input form-control input-sm" required />
+                </div>
+            </td>
+            <td>
+                <button class="btn btn-primary btn-sm" ng-click="save(row, rowForm)" ng-if="row.isEditing" ng-disabled="rowForm.$pristine || rowForm.$invalid"><span class="glyphicon glyphicon-ok"></span></button>
+                <button class="btn btn-default btn-sm" ng-click="cancel(row, rowForm)" ng-if="row.isEditing"><span class="glyphicon glyphicon-remove"></span></button>
+                <button class="btn btn-default btn-sm" ng-click="row.isEditing = true" ng-if="!row.isEditing"><span class="glyphicon glyphicon-pencil"></span></button>
+                <button class="btn btn-danger btn-sm" ng-click="del(row)"><span class="glyphicon glyphicon-trash"></span></button>
+            </td>
+            <!--<td class="text-right"  data-title="'Default mail text'" sortable="'defaultMailText'">{{row.defaultMailText}}</td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
